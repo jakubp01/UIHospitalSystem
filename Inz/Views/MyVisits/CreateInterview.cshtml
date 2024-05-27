@@ -1,0 +1,107 @@
+﻿@model Inz.Models.InterviewModel
+
+@{
+    ViewData["Title"] = "CreateInterview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+
+    <link rel="stylesheet" href="~/css/CreateInterview.css" asp-append-version="true" />
+</head>
+
+<h1 class="Tittle">Uzupełnij Wywiad Lekarski</h1>
+<hr />
+<div class="MainBlock">
+    <div class="MainContainer">
+        <form asp-action="CreateInterview">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="MainRadiosConatiner">
+                <div class="FirstRadioContainer">
+                    <div class="form-group form-check">
+                        <label class="RadioElement">
+                            <input class="form-check-input" asp-for="IsHeadache" /> @Html.DisplayNameFor(model => model.IsHeadache)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="RadioElement">
+                            <input class="form-check-input" asp-for="isCough" /> @Html.DisplayNameFor(model => model.isCough)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="RadioElement">
+                            <input class="form-check-input" asp-for="isRunnyNose" /> @Html.DisplayNameFor(model => model.isRunnyNose)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="RadioElement">
+                            <input class="form-check-input" asp-for="HigherTemperature" /> @Html.DisplayNameFor(model => model.HigherTemperature)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="RadioElement">
+                            <input class="form-check-input" asp-for="MuscleAches" /> @Html.DisplayNameFor(model => model.MuscleAches)
+                        </label>
+                    </div>
+                </div>
+                <div class="SecondRadioContainer">
+                    <div class="form-group form-check">
+                        <label class="RadioElement">
+                            <input class="form-check-input" asp-for="IsChills" /> @Html.DisplayNameFor(model => model.IsChills)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="RadioElement">
+                            <input class="form-check-input" asp-for="IsStomachache" /> @Html.DisplayNameFor(model => model.IsStomachache)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="RadioElement">
+                            <input class="form-check-input" asp-for="IsAnyPain" /> @Html.DisplayNameFor(model => model.IsAnyPain)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="RadioElement">
+                            <input class="form-check-input" asp-for="IsPatientFeelsTired" /> @Html.DisplayNameFor(model => model.IsPatientFeelsTired)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="RadioElement">
+                            <input class="form-check-input" asp-for="IsDizziness" /> @Html.DisplayNameFor(model => model.IsDizziness)
+                        </label>
+                     </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="ThroatOpinion" class="control-label"></label>
+                <input asp-for="ThroatOpinion" class="form-control" />
+                <span asp-validation-for="ThroatOpinion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BreathFromFrontOpinion" class="control-label"></label>
+                <input asp-for="BreathFromFrontOpinion" class="form-control" />
+                <span asp-validation-for="BreathFromFrontOpinion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BreathFromBacktOpinion" class="control-label"></label>
+                <input asp-for="BreathFromBacktOpinion" class="form-control" />
+                <span asp-validation-for="BreathFromBacktOpinion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BloodPressure" class="control-label"></label>
+                <input asp-for="BloodPressure" class="form-control" />
+                <span asp-validation-for="BloodPressure" class="text-danger"></span>
+            </div>
+
+            <div class="ButtonContainer">
+                <input type="submit" value="Utwórz" class="btn btn-primary CreateButton" />
+                <a asp-action="Index" class="btn btn-secondary">Wróć</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    
+</div>
+

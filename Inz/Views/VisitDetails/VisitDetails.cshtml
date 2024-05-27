@@ -1,0 +1,149 @@
+﻿@model Inz.Models.VisitDetailsModel;
+
+
+<head>
+
+    <link rel="stylesheet" href="~/css/VisitDetails.css" asp-append-version="true" />
+</head>
+
+
+<h1 class="Title">Szczegóły wizyty</h1>
+
+    
+<div class="MainBlock">
+    <div class="MainContainer">
+        <div class="PatientDetails">
+           <p class="SectionTitle"> Szczegóły Pacjenta</p>
+           <div class="DetailElement">
+               <label>Imię: </label>
+               <p class="ElementValue">@Model.visit.patient.FirstName</p>
+           </div>
+            <div class="DetailElement">
+                <label>Nazwisko:</label>
+                <p class="ElementValue">@Model.visit.patient.LastName</p>
+            </div>
+            <div class="DetailElement">
+                <label>Email: </label>
+                <p class="ElementValue">@Model.visit.patient.EmailAddress</p>
+            </div>
+            <div class="DetailElement">
+                <label>Adres zamieszkania: </label>
+                <p class="ElementValue">@Model.visit.patient.HomeAddress</p>
+            </div>
+        </div>
+        <div class="DoctorDetails">
+            <p class="SectionTitle"> Szczegóły Lekarza</p>
+            <div class="DetailElement">
+                <label>Imię: </label>
+                <p class="ElementValue">@Model.visit.doctor.FirstName</p>
+            </div>
+            <div class="DetailElement">
+                <label>Nazwisko: </label>
+                <p class="ElementValue">@Model.visit.doctor.LastName</p>
+            </div>
+            <div class="DetailElement">
+                <label>Email: </label>
+                <p class="ElementValue">@Model.visit.doctor.Email</p>
+            </div>
+            <div class="DetailElement">
+                <label>Adres zamieszkania: </label>
+                <p class="ElementValue">@Model.visit.doctor.HomeAddress</p>
+            </div>
+        </div>
+        @if (Model.Interview != null)
+        {
+            <div class="BottomTittle">
+                <p class="fw-bold"> Szczegóły Wywiadu</p>
+            </div>
+            
+        <div class="InterviewDetails">
+               
+            <div class="InterviewElements">
+                <dt class="InterviewLabel">
+                    @Html.DisplayNameFor(model => model.Interview.IsHeadache)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Interview.IsHeadache)
+                </dd>
+
+                <dt class="InterviewLabel">
+                    @Html.DisplayNameFor(model => model.Interview.isCough)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Interview.isCough)
+                </dd>
+                <dt class="InterviewLabel">
+                        @Html.DisplayNameFor(model => model.Interview.isRunnyNose)
+                </dt>
+                <dd>
+                        @Html.DisplayFor(model => model.Interview.isRunnyNose)
+                </dd>
+
+                <dt class="InterviewLabel">
+                        @Html.DisplayNameFor(model => model.Interview.HigherTemperature)
+                </dt>
+                <dd>
+                        @Html.DisplayFor(model => model.Interview.HigherTemperature)
+                </dd>
+                <dt class="InterviewLabel">
+                        @Html.DisplayNameFor(model => model.Interview.MuscleAches)
+                </dt>
+                <dd>
+                        @Html.DisplayFor(model => model.Interview.MuscleAches)
+                </dd>
+                <dt class="InterviewLabel">
+                        @Html.DisplayNameFor(model => model.Interview.IsChills)
+                </dt>
+                <dd>
+                        @Html.DisplayFor(model => model.Interview.IsChills)
+                </dd>
+                <dt class="InterviewLabel">
+                        @Html.DisplayNameFor(model => model.Interview.IsAnyPain)
+                </dt>
+                <dd>
+                        @Html.DisplayFor(model => model.Interview.IsAnyPain)
+                </dd>
+                <dt class="InterviewLabel">
+                    @Html.DisplayNameFor(model => model.Interview.IsPatientFeelsTired)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Interview.IsPatientFeelsTired)
+                </dd>
+                <dt class="InterviewLabel">
+                    @Html.DisplayNameFor(model => model.Interview.IsDizziness)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Interview.IsDizziness)
+                </dd>
+                
+            </div>
+            
+
+        </div>
+        <div>
+            <dt class="InterviewLabel">
+                @Html.DisplayNameFor(model => model.Interview.ThroatOpinion)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Interview.ThroatOpinion)
+            </dd>
+            <dt class="InterviewLabel">
+                @Html.DisplayNameFor(model => model.Interview.BreathFromFrontOpinion)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Interview.BreathFromFrontOpinion)
+            </dd>
+            <dt class="InterviewLabel">
+                @Html.DisplayNameFor(model => model.Interview.BreathFromBacktOpinion)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Interview.BreathFromBacktOpinion)
+            </dd>
+
+        </div>
+        
+            
+        }
+    </div>
+
+</div>

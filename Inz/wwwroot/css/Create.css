@@ -1,0 +1,35 @@
+﻿
+.MainDiv {
+    background-color: white;
+    width: 500px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.MainContainer {
+    margin:15px;
+
+}
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Title {
+    display: flex;
+    justify-content: center;
+}
+
+.text-center {
+    margin-top: 10px;
+}
+
+.btn-primary {
+    margin-right: 10px;
+}
+
+description-field {
+    height: 100px;
+}

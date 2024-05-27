@@ -1,0 +1,49 @@
+﻿@using Inz.Enums;
+@model IEnumerable<Inz.Models.Patient>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="~/js/searchScript.js"></script>
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/MyVisitsView.css" asp-append-version="true" />
+</head>
+<div class="search-box">
+    <label for="searchInput">Search:</label>
+    <input type="text" id="searchInput" />
+</div>
+
+<div class="container">
+    <div class="table-box">
+        <h1 class="Title">Lista Pacjentów</h1>
+        @foreach (var element in Model)
+        {
+            <div class="rowElement">
+                <div class="elementDetail">
+                    <label class="detailLabel">Imię</label>
+
+                    <p>@element.FirstName @element.LastName</p>
+
+                </div>
+                <div class="elementDetail">
+                    <label class="detailLabel">Adres</label>
+                    <p>@element.HomeAddress</p>
+
+                </div>
+                <div class="elementDetail">
+                    <label class="detailLabel">Email</label>
+                    <p>@element.EmailAddress</p>
+
+                </div>
+                <div class="RemoveVisitBtn">
+                    <a asp-area="" asp-controller="RemovePatientProfile" asp-action="Remove" asp-route-id="@element.Id">Usuń</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

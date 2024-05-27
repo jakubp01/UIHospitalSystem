@@ -1,0 +1,65 @@
+﻿@using Inz.Enums;
+@model IEnumerable<Inz.Models.Visit>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="~/js/searchScript.js"></script>
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/MyVisitsView.css" asp-append-version="true" />
+</head>
+<div class="search-box">
+    <label for="searchInput">Search:</label>
+    <input type="text" id="searchInput" />
+</div>
+
+<div class="container">
+    <div class="table-box">
+        <h1 class="Title">Moje Wizyty</h1>
+        @foreach(var element in Model)
+        {
+            <div class="rowElement" onclick="window.location.href='@Url.Action("VisitDetails", "VisitDetails", new { visitId = element.Id })';">
+                <div class="elementDetail">
+                    <label class="detailLabel">Pacjent</label>
+                    <a asp-controller="PatientVisitsHistory" asp-action="Index" asp-route-patientId="@element.patient.Id">
+                        <p>@element.patient.FirstName @element.patient.LastName</p>
+                    </a>
+
+                </div>
+                <div class="elementDetail">
+                    <label class="detailLabel">Lekarz</label>
+                    <p>@element.doctor.FirstName @element.doctor.LastName</p>
+
+                </div>
+                <div class="elementDetail">
+                    <label class="detailLabel">Data</label>
+                    <p>@element.Date</p>
+
+                </div>
+                <div class="elementDetail">
+                    @{
+                        var visitStatus = (VisitStatus)element.Status;
+                    }
+                    <label class="detailLabel">Status</label>
+                    <p>@Html.DisplayFor(modelItem => visitStatus)</p>
+
+                </div>
+                <div>
+                    @if (element.IsInterviewExist == null)
+                    {
+                        <a asp-action="CreateInterview" asp-route-id="@element.Id">Dodaj Wywiad</a>
+                    }
+                    | <a asp-action="Edit" asp-route-id="@element.Id">Edytuj</a> |
+                    <a asp-action="Delete" asp-route-id="@element.Id">Usuń</a>
+
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

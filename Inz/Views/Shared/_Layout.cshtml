@@ -1,0 +1,76 @@
+﻿@using Inz.Areas.Identity.Data;
+@using Microsoft.AspNetCore.Identity;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Inz</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Inz.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky"> 
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Praca inżynierska</a>
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <img class="Icon" src="~/icons/mainPanel.png" />
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" asp-action="Index">Panel Główny</a>
+                        </li>
+                        <li class="nav-item">
+                            <img class="Icon" src="~/icons/visitsIcon.png" />
+                            <a class="nav-link text-dark" asp-area="" asp-controller="MyVisits" asp-action="Index">Moje Wizyty</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <img class="Icon" src="~/icons/HistoryIcon.png" />
+                            <a class="nav-link text-dark" asp-area="" asp-controller="DoctorVisitsHistory" asp-action="Index">Historia Wizyt</a>
+                        </li>
+                        <li class="nav-item">
+                            <img class="Icon" src="~/icons/approveIcon.png" />
+                            <a class="nav-link text-dark" asp-area="" asp-controller="VisitToApprove" asp-action="Index">Zatwierdź Wizyty</a>
+                        </li>
+                        <li class="nav-item">
+                            <img class="Icon" src="~/icons/doctorIcon.png" />
+                            <a class="nav-link text-dark" asp-area="" asp-controller="DoctorList" asp-action="Index">Lekarze</a>
+                        </li>
+                        <li class="nav-item">
+                            <img class="Icon" src="~/icons/patientsIcon.png"/>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="PatientList" asp-action="Index">Pacjenci</a>
+                        </li>
+                            <li class="nav-item">
+                                <img class="Icon" src="~/icons/addWorkerProfile.png" />
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="Register">Utwórz porfil użytkownika</a>
+                            </li>
+                    </ul>
+                    
+                </div>
+                <div class="PartialLogin fixed-bottom"><partial name="_LoginPartial" /></div>
+            </nav>
+
+            <main role="main" class="col-md-10 ml-md-auto main-content">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+<style>
+    .Icon{
+        display: flex;
+        max-height:25px;
+        max-width:25px;
+        object-fit: cover;
+    }
+</style>
+
+</html>

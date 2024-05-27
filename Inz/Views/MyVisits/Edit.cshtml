@@ -1,0 +1,71 @@
+﻿@using Inz.Enums;
+@model Inz.Models.Visit
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    SelectList doctorSelectList = ViewBag.DoctorSelectList;
+    SelectList patientSelectList = ViewBag.PatientSelectList;
+    string doctorId = ViewBag.DoctorId;
+    string patientId = ViewBag.PatientId;
+}
+<head>
+
+    <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
+</head>
+
+<h1 class="Title">Edytuj Wizytę</h1>
+
+<hr />
+<div class="center-content">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="doctor" class="control-label"></label>
+                <select asp-for="doctor.Id" class="form-control" asp-items="doctorSelectList">
+                    <option value="">Select Doctor</option>
+                </select>
+                <span asp-validation-for="doctor" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="patient" class="control-label"></label>
+                <select asp-for="patient.Id" class="form-control" asp-items="patientSelectList">
+                    <option value="">Select Patient</option>
+                </select>
+                <span asp-validation-for="patient" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Desctription" class="control-label"></label>
+                <input asp-for="Desctription" class="form-control" />
+                <span asp-validation-for="Desctription" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<VisitStatus>()">
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="text-center">
+                <input type="submit" value="Aktualizuj" class="btn btn-primary" />
+                <a class="btn btn-secondary" asp-area="" asp-controller="Home" asp-action="Index">Anuluj</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="~/scripts/EditCustomSelect.js"></script>
+}

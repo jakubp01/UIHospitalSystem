@@ -1,0 +1,150 @@
+﻿.box-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box {
+    width: 45%;
+    padding: 10px;
+    margin: 5px;
+    height: 50%;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s;
+    overflow-y: auto;
+}
+
+.left-box {
+    display:flex;
+    background-color: white;
+    width:100%;
+    max-height:50rem;
+    flex-direction:column;
+}
+
+.pieChartBox{
+    display:flex;
+    height:50%;
+    width:40%;
+    justify-content:center;
+    margin:auto;
+}
+.lineChart{
+}
+#lineChart{
+    height:300px;
+}
+.right-box {
+    background-color: white;
+    height:100%
+}
+
+.element {
+    padding: 10px;
+    margin: 10px;
+    background: #d2e2f7;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s;
+}
+
+    .element:hover {
+        background-color: #eee;
+        transform: scale(1.03);
+        border-color: #999;
+    }
+
+.item {
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+.item-date {
+    border-bottom: 1px solid #dee2e6 !important;
+}
+
+.info-date {
+    word-wrap: break-word;
+}
+
+.upperBox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.LeftUpperBox {
+    display:flex;
+}
+.RightUpperBox {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    float:right;
+}
+
+.InfoBox {
+    height: 60px;
+    width: 175px;
+    background: white;
+    margin: 5px;
+    border-radius: 10px;
+    transition: all 0.2s;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    margin-right: 40px;
+    text-align: center;
+}
+
+    .InfoBox:hover {
+        background-color: #c7c5c5;
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+.LeftSide {
+    display: flex;
+    flex-direction: column;
+}
+
+.AddVisit {
+    display: flex;
+    background: #91C8E4;
+    flex-direction: column;
+    align-items: center
+}
+    .AddVisit:hover {
+        background: #75bce0;
+    }
+.AddPatient {
+    display: flex;
+    background: #A084E8;
+    flex-direction: column;
+    align-items: center
+}
+    .AddPatient:hover {
+        background: #9375e0;
+    }
+.InfoLabel {
+    margin: 0 !important;
+    line-height: 1.5;
+}
+.RightBoxTittle {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.elementInfo {
+    margin: 0;
+    font-weight: bold;
+}
+.Icon {
+
+}

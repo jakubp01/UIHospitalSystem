@@ -1,0 +1,58 @@
+﻿.MainBlock {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+}
+.MainContainer {
+    display: flex;
+    max-width: 50%;
+    height: 100%;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    justify-content: center;
+    align-content: center;
+    border-radius: 25px;
+    flex-wrap: wrap;
+}
+.DetailElement {
+    display: flex;
+    margin-right: 10px;
+}
+.ElementValue{
+    margin-left:5px;
+}
+.PatientDetails{
+    margin:10px;;
+}
+.DoctorDetails {
+    margin: 10px;
+}
+.InterviewDetails {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.InterviewElements {
+    display:inline-flex;
+    width: 55%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin:auto;
+}
+.InterviewLabel{
+    margin-right:5px;
+    margin-left:5px;
+}
+.SectionTitle{
+    font-weight:bold;
+}
+.BottomTittle{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    justify-items:center;
+}
+

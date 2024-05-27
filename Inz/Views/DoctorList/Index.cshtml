@@ -1,0 +1,50 @@
+﻿@using Inz.Areas.Identity.Data;
+@using Inz.Enums;
+@model List<AppUser>;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="~/js/searchScript.js"></script>
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/MyVisitsView.css" asp-append-version="true" />
+</head>
+<div class="search-box">
+    <label for="searchInput">Search:</label>
+    <input type="text" id="searchInput" />
+</div>
+
+<div class="container">
+    <div class="table-box">
+        <h1 class="Title">Lekarze</h1>
+        @foreach (var element in Model)
+        {
+            <div class="rowElement" onclick="window.location.href='@Url.Action("VisitDetails", "VisitDetails", new { visitId = element.Id })';">
+                <div class="elementDetail">
+                    <label class="detailLabel">Imię</label>
+
+                        <p>@element.FirstName @element.LastName</p>
+
+                </div>
+                <div class="elementDetail">
+                    <label class="detailLabel">Adres</label>
+                    <p>@element.HomeAddress</p>
+
+                </div>
+                <div class="elementDetail">
+                    <label class="detailLabel">Email</label>
+                    <p>@element.Email</p>
+
+                </div>
+                <div class="RemoveVisitBtn">
+                    <a asp-area="" asp-controller="RemoveDoctor" asp-action="Remove" asp-route-id="@element.Id">Usuń</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

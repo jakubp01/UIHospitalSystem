@@ -1,0 +1,110 @@
+﻿/* Add or update this style in your MyVisitsView.css file */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.table-box {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+    .table-box a, .table-box a:hover {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .table-box a:hover {
+        color: #007bff; /* Set the color for the links on hover */
+    }
+
+.rowElement {
+    display: flex;
+    background: #d2e2f7;
+    width: 100%;
+    height: 75px;
+    margin-bottom: 15px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.rowElement:hover{
+    transform:scale(1.01);
+    cursor:pointer;
+}
+
+.elementDetail{
+    display:flex;
+}
+.detailLabel{
+    font-weight:bold;
+    margin-right:10px;
+}
+
+
+
+
+.search-box {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#searchInput {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.ApproveVisitBtn {
+    text-align: center;
+    background-color: #aeed4e;
+    border-radius: 5px;
+    height: 40px;
+    width: 100px;
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+}
+    .ApproveVisitBtn:hover {
+        background-color: #8fd426;
+        cursor:pointer;
+        transform:scale(1.1)
+    }
+.RemoveVisitBtn {
+    text-align: center;
+    background-color: #d45226;
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+    .RemoveVisitBtn:hover {
+        background-color: #d14819;
+        cursor: pointer;
+        transform: scale(1.1)
+    }
+
+.ButtonContainer {
+    display: flex;
+    align-items: center;
+    margin-top:auto;
+
+}
+.btnText {
+    text-decoration: none !important;
+}

@@ -1,0 +1,131 @@
+﻿@using Inz.Enums;
+@using Inz.Models;
+@using Inz.Models.chartsModel;
+@model IEnumerable<Inz.Models.Visit>
+
+@{
+    ViewData["Title"] = "Home Page";
+    BasicVisitsChartModel chartData = ViewBag.ChartData;
+    var ints = 10;
+
+}
+@{
+    List<Visit> latestVisits = ViewBag.LatestVisits;
+}
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/js/BasicChart.js"></script>
+    <script src="~/js/lineChart.js"></script>
+    <script src="~/js/testChart.js"></script>
+    
+}
+<head>
+    <link rel="stylesheet" href="~/css/MainPage.css" asp-append-version="true" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<h1>Panel Główny</h1>
+<div class="text-center">
+    <div class="upperBox">
+        <div class="LeftUpperBox">
+        <div class="InfoBox">
+            <p class="InfoLabel">Moich Wizyt</p>
+            <div>@ViewBag.visitsCount</div>
+        </div>
+        <div class="InfoBox">
+            <p class="InfoLabel">Pacjentów</p>
+            <div>@ViewBag.patientsCount</div>
+        </div>
+        <div class="InfoBox" onclick="window.location.href='@Url.Action("Index", "VisitToApprove")';">
+            <p class="InfoLabel">Do zatwierdzenia</p>
+            <div>@ViewBag.visitsToApproveCount</div>
+        </div>
+        </div>
+        <div class="RightUpperBox">
+            <div class="InfoBox AddVisit" onclick="window.location.href='@Url.Action("Create", "CreateVisit")';">
+                <p class="InfoLabel">Dodaj Wizytę</p> 
+                <img class="Icon" src="~/icons/plusicon.png" />
+            </div>
+            <div class="InfoBox AddPatient" onclick="window.location.href='@Url.Action("Create", "CreatePatientProfile")';">
+                <p class="InfoLabel">Dodaj Pacjenta</p>
+                <img class="Icon" src="~/icons/AddPatientIcon.png" />
+            </div>
+
+        </div>
+    </div>
+
+    <div class="box-container">
+        <div class="box left-box"> 
+
+            <div class="pieChartBox">
+                <canvas class="pieChart" id="myChart"
+                        data-new-visits="@ViewBag.ChartData.NewVisits"
+                        data-visits-to-approve="@ViewBag.ChartData.VisitsNeedToApprove"
+                        data-finished-visit="@ViewBag.ChartData.FinishedVisit">
+                </canvas>
+            </div>
+            
+            <div class="lineChartBox">
+                <canvas class="lineChart" id="lineChart"></canvas>
+            </div> 
+            
+            <script>
+               
+            </script>
+        </div>
+        <div class="box right-box">
+            <p class="RightBoxTittle">Najbliższe Wizyty</p>
+            @foreach (var element in Model)
+            {
+                <div class="element">
+                    <p class="elementInfo">@element.Date</p>
+                    <p class="elementInfo">@element.patient.FirstName @element.patient.LastName</p>
+                    <p class="elementInfo">@element.Desctription</p>
+                </div>
+            }
+            <p class="RightBoxTittle">Ostatnie Wizyty</p>
+            @foreach (var element in latestVisits)
+            {
+                <div class="element">
+                    <p class="elementInfo">@element.Date</p>
+                    <p class="elementInfo">@element.patient.FirstName @element.patient.LastName</p>
+                    <p class="elementInfo">@element.Desctription</p>
+                </div>
+            }
+        </div>
+    </div>
+    <script>
+        var chartData = @Html.Raw(ViewBag.VisitsGrowChartData);
+
+        var ctx = document.getElementById('lineChart').getContext('2d');
+        var lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: chartData.map(item => item.Month),
+                datasets: [{
+                    label: 'Liczba Wizyt',
+                    data: chartData.map(item => item.AmountOfVisit),
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        type: 'category',
+                        labels: chartData.map(item => item.Month),
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+   

@@ -1,0 +1,103 @@
+/* General Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #d2e2f7;
+}
+
+.container-fluid, .row {
+    height: 100%;
+}
+
+/* Navbar Styles */
+.navbar {
+    padding: 10px;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    max-width:220px
+}
+
+    .nav-item:hover {
+        background-color: #F3F8FF;
+    }
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+    .nav-link:hover {
+        color: #007bff;
+    }
+
+.navbar-toggler-icon {
+    background-color: #333;
+}
+
+.navbar-brand {
+    margin-left: 25px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    height: 100%;
+    width: 210px; /* Set a width for the sidebar */
+    position: fixed;
+    z-index: 1000;
+    background: white !important;
+    box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.5);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.sidebar-sticky {
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+}
+
+.sidebar .navbar-brand {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px; /* Optional: Add margin for spacing */
+}
+
+    .sidebar .navbar-brand img {
+        max-width: 100%;
+        height: auto;
+    }
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 230px; /* Adjusted to accommodate the sidebar width */
+    padding: 20px;
+    z-index: 1;
+}
+
+.Icon {
+    max-height: 25px;
+    max-width: 25px;
+    object-fit: cover;
+    margin-right: 5px; /* Adjust the margin as needed for spacing between the icon and the label */
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-weight: bold;
+}
+
+.PartialLogin{
+    justify-content:end;
+}
